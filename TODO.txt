@@ -1,0 +1,23 @@
+Application trajets de musique :
+
+     - inscription des enfants qui vont à la musique : jour de la semaine, heure de début, heure de fin, prenom et nom de famille (pour gérer les frères et soeur)
+
+     - inscription des parents (jours de disponibilité, pourcentage de co-voiturage souhaité)
+
+     - calcul des voyages pour préproposition par méthode du plus grand reste (ex-aequo départagés de façon statique : toujours de la même façon)
+
+     - modification du planning des trajets par échange, suppression avec décalage ou sans décalage
+
+     - historique (linéaire) des modifications et fonction d'annulation
+
+     - export csv avec un tableau pour chaque jour de la semaine; ligne heure et enfants à emmener ou ramener;  colonnes dates ; cases Prénom Nom du parent accompagnateur
+
+
+
+Faciliter le covoiturage pour amener les enfants à leur cours de musique
+horaires qui se chevauchent, succèdent
+les enfants inscrivent leurs cours (plusieurs cours durées etc variables)
+inscription des parents qui vont co-voiturer (+ pourcentage de covoiture (trajets_prets_a_etre_faits par rapport à trajets_max_des_enfants))
+calcul des voyages par la méthode du plus grand reste
+enfants qui commencent / finissent à la même heure font le voyage ensemble
+modification du planning via interface web

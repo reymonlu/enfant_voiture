@@ -24,10 +24,10 @@ CREATE TABLE Disponible(
   FOREIGN KEY(cours) REFERENCES Cours(id_cours)
 );
 CREATE TABLE Inscription(
-  id_inscription INTEGER PRIMARY KEY,
-  jour_inscription text NOT NULL,
+  date_inscription text NOT NULL CHECK(date_inscription > date('now')),
   enfant INTEGER NOT NULL,
   cours INTEGER NOT NULL,
   FOREIGN KEY(enfant) REFERENCES Enfant(id_enfant),
-  FOREIGN KEY(cours) REFERENCES Cours(id_cours)
+  FOREIGN KEY(cours) REFERENCES Cours(id_cours),
+  PRIMARY KEY (enfant, cours)
 );

@@ -1,8 +1,27 @@
 <?php
-  $_GET['prenom'] = htmlentities($_GET['prenom']);
-  $_GET['nom'] = htmlentities($_GET['nom']);
-  $prenom = $_GET['prenom'];
-  $nom = $_GET['nom'];
-  var_dump($prenom);
-  var_dump($nom);
-?>
+
+require_once("../model/vue.class.php");
+
+
+
+
+# Instanciation de la vue
+$view = new View();
+
+$view->show("../vue/ajout_enfant.view.php");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ?>

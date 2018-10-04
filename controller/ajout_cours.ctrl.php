@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
   require_once('../model/coursDAO.class.php');
 
@@ -23,3 +24,36 @@
   var_dump($duree);
   var_dump($jour_sem);
 ?>
+=======
+require_once("../model/vue.class.php");
+
+
+
+
+# Instanciation de la vue
+$view = new View();
+
+$view->show("../vue/ajout_cours.view.php");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ?>
+>>>>>>> d2b252d3bd21ae02a09de037b8337908512b3b10

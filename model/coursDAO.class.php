@@ -14,12 +14,11 @@ class coursDAO{
     catch(PDOException $e){
       die("Erreur de connexion:".$e->getMessage());
     }
-  }
+}
 
-  function insertCoursDBA($libelle, $heure_debut, $duree, $jour){
+function insertCoursDBA($libelle, $heure_debut, $duree, $jour){
     global $db;
     $libelle = $this->db->quote($libelle);
-    $heure_debut = $this->db->quote($heure_debut);
     $duree = $this->db->quote($duree);
     $jour = $this->db->quote($jour);
     $req = "INSERT INTO cours(libelle,heure_debut,duree,jour) VALUES($libelle,$heure_debut, $duree, $jour)";

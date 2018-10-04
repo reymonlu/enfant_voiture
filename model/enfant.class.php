@@ -30,8 +30,4 @@ class Enfant
   }
 }
 
-$enf = new Enfant("bob","dylan");
-$enf->print();
-
-
 ?>

@@ -1,8 +1,6 @@
 <?php
 class View{
   private $_path="";
-
-
   function __construct(string $path=""){
     $this->_path = $path;
   }

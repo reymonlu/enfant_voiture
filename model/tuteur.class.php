@@ -51,8 +51,4 @@ class Tuteur
   }
 }
 
-$enf = new Tuteur("bob","dylan","lundi",50);
-$enf->print();
-
-
 ?>

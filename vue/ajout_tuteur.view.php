@@ -6,7 +6,7 @@
   </head>
   <body>
     <h2>Rajouter un Tuteur</h2>
-    <form action="controller/ajout_tuteur.ctrl.php" method="get">
+    <form action="../controller/controle_tuteur.ctrl.php" method="get">
       Prénom du tuteur : <input type="text" name="prenom" /><br>
       Nom du tuteur : <input type="text" name="nom"><br>
       Pourcentage de disponibilité : <input type="number" name="ptage_dispo" value="">

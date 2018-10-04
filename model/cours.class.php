@@ -42,7 +42,4 @@ class Cours{
   }
 }
 
-$cou = new Cours(4,5,"lundi");
-$cou->print();
-
 ?>

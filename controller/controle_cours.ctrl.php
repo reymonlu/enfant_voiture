@@ -13,13 +13,5 @@
   $jour_sem = $_GET['jour_sem'];
 
   $database = new CoursDAO();
-  $id_cours = $database->newID_cours();
-  var_dump($id_cours);
-  $database->insertCoursDBA($id_cours, $libelle, $heure_deb, $duree, $jour_sem);
-  var_dump($database);
-
-  var_dump($libelle);
-  var_dump($heure_deb);
-  var_dump($duree);
-  var_dump($jour_sem);
+  $database->insertCoursDBA($libelle, $heure_deb, $duree, $jour_sem);
 ?>

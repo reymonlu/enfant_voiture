@@ -16,8 +16,8 @@ class Cours{
     $this->heure_debut = $heure_debut;
   }
 
-  public function set_heure_fin($heure_fin){
-    $this->heure_fin = $heure_fin;
+  public function set_duree($duree){
+    $this->duree = $duree;
   }
 
   public function set_jour_semaine($jour_semaine){
@@ -28,8 +28,8 @@ class Cours{
     return $this->heure_debut;
   }
 
-  public function get_heure_fin(){
-    return $this->heure_fin;
+  public function get_duree(){
+    return $this->duree;
   }
 
   public function get_jour_semaine(){
@@ -37,7 +37,7 @@ class Cours{
   }
 
   public function print(){
-    print("je suis le cours ".$this->get_heure_debut()." ".$this->get_heure_fin()
+    print("je suis le cours ".$this->get_heure_debut()." ".$this->get_duree()
       ." ".$this->get_jour_semaine());
   }
 }

@@ -11,6 +11,7 @@ CREATE TABLE Tuteur(
 );
 CREATE TABLE Cours(
   id_cours INTEGER PRIMARY KEY,
+  libelle char(50) NOT NULL,
   heure_debut text NOT NULL,
   duree text NOT NULL,
   jour text CHECK(jour IN ('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'))

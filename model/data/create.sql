@@ -11,6 +11,7 @@ CREATE TABLE Tuteur(
 );
 CREATE TABLE Cours(
   id_cours INTEGER PRIMARY KEY,
+  libelle char(50) NOT NULL,
   heure_debut text NOT NULL,
   duree text NOT NULL,
   jour text CHECK(jour IN ('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'))
@@ -23,10 +24,10 @@ CREATE TABLE Disponible(
   FOREIGN KEY(cours) REFERENCES Cours(id_cours)
 );
 CREATE TABLE Inscription(
-  id_inscription INTEGER PRIMARY KEY,
-  jour_inscription text NOT NULL,
+  date_inscription text NOT NULL CHECK(date_inscription > date('now')),
   enfant INTEGER NOT NULL,
   cours INTEGER NOT NULL,
   FOREIGN KEY(enfant) REFERENCES Enfant(id_enfant),
-  FOREIGN KEY(cours) REFERENCES Cours(id_cours)
+  FOREIGN KEY(cours) REFERENCES Cours(id_cours),
+  PRIMARY KEY (enfant, cours)
 );

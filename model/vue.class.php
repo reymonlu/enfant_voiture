@@ -15,14 +15,5 @@ class View{
     }
     include($p);
   }
-
 }
-
-
-
-
-
-
-
-
  ?>

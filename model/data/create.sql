@@ -7,7 +7,7 @@ CREATE TABLE Tuteur(
   id_tuteur INTEGER PRIMARY KEY AUTO_INCREMENT,
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
-  pourcentage_disponibilite numeric(2,2) NOT NULL
+  pourcentage_disponibilite decimal(10,0) NOT NULL
 );
 CREATE TABLE Cours(
   id_cours INTEGER PRIMARY KEY AUTO_INCREMENT,

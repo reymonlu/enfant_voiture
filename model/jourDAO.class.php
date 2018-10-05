@@ -1,5 +1,5 @@
 <?php
-class jourDAO{
+Class jourDAO{
   private $db;
   private $database = "../model/data/database.db"; //Chemin vers la base de donnée
   function __construct(){

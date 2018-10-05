@@ -1,5 +1,5 @@
 <?php
-class EnfantDAO{
+class tuteurDAO{
   private $db;
   private $database = "../model/data/database.db"; //Chemin vers la base de donnée
   function __construct(){
@@ -12,17 +12,19 @@ class EnfantDAO{
 }
 
 
-function insertEnfantDBA($nom, $prenom){
+function insertTuteurDBA($nom, $prenom,$pourcentage_disponibilite){
     global $db;
     $nom = $this->db->quote($nom);
     $prenom = $this->db->quote($prenom);
-    $req = "INSERT INTO enfant(nom,prenom) VALUES($nom,$prenom)";
+    $pourcentage_disponibilite = $this->db->quote($pourcentage_disponibilite);
+    $req = "INSERT INTO tuteur(nom,prenom,pourcentage_disponibilite) VALUES($nom,$prenom,$pourcentage_disponibilite)";
+    echo($req);
     $sth = $this->db->exec($req);
     if(!$sth){
         echo "\nPDO::errorInfo():\n";
         print_r($this->db->errorInfo());
     }
-  }
+}
 
 }
 

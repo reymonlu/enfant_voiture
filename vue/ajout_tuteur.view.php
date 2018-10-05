@@ -9,7 +9,7 @@
     <form action="../controller/controle_tuteur.ctrl.php" method="get">
       Prénom du tuteur : <input type="text" name="prenom" /><br>
       Nom du tuteur : <input type="text" name="nom"><br>
-      Pourcentage de disponibilité : <input type="number" name="ptage_dispo" value="">
+      Pourcentage de disponibilité : <input type="number" name="ptage_dispo" value=""><br>
       Jours de disponibilité :<br>
       <input type="checkbox" name="jour_dispo[]" value="lundi"> Lundi<br>
       <input type="checkbox" name="jour_dispo[]" value="mardi"> Mardi<br>

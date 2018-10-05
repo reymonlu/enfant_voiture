@@ -28,6 +28,7 @@ function insertTuteurDBA($nom, $prenom,$pourcentage_disponibilite){
 
   function selectAllTuteurs(){
     $requete = "SELECT * FROM Tuteur";
+
     # Execution de la requete
     $res = $this->db->query($requete);
     $tuteur = $res->fetchAll(PDO::FETCH_CLASS, 'Tuteur');

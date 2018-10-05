@@ -24,6 +24,16 @@ function insertEnfantDBA($nom, $prenom){
     }
   }
 
+  // Fonction qui retourne une liste de tous les cours
+  function selectAllEnfants(){
+    $requete = "SELECT * FROM Enfant";
+
+    # Execution de la requete
+    $res = $this->db->query($requete);
+    $enfant = $res->fetchAll(PDO::FETCH_CLASS, 'Enfant');
+    return (empty($enfant)) ? null : $enfant;
+  }
+
 }
 
  ?>

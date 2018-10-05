@@ -19,6 +19,7 @@ class coursDAO{
 function insertCoursDBA($libelle, $heure_debut, $duree, $jour){
     global $db;
     $libelle = $this->db->quote($libelle);
+    $heure_debut = $this->db->quote($heure_debut);
     $duree = $this->db->quote($duree);
     $jour = $this->db->quote($jour);
     $req = "INSERT INTO cours(libelle,heure_debut,duree,jour) VALUES($libelle,$heure_debut, $duree, $jour)";
@@ -26,12 +27,6 @@ function insertCoursDBA($libelle, $heure_debut, $duree, $jour){
     if(!$sth){
       echo "\nPDO::errorInfo():\n";
       print_r($this->db->errorInfo());
-    }
-    if($sth == 1){
-      echo '<p><strong>Le cours '.$libelle.' a bien été ajouté ! </strong></p><br/>';
-    }
-    else{
-      echo '<p><strong>Le cours '.$libelle.' n\'a pas pu être enregistré veuillez recommencer! </strong></p><br/>';
     }
   }
 

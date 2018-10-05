@@ -5,11 +5,18 @@
     <title>Ajout Enfant</title>
   </head>
   <body>
-    <h2>Rajouter un enfant</h2>
+    <h1>Rajouter un enfant</h1>
       <form action="../controller/controle_enfant.ctrl.php" method="get">
-        Prénom de l'enfant : <input type="text" name="prenom" /><br>
-        Nom de l'enfant : <input type="text" name="nom" value=""><br>
+        <label for="prenom">Prénom de l'enfant : </label>
+        <input id="prenom" type="text" name="prenom" /><br>
+        <label for="nom">Nom de l'enfant : </label>
+        <input id="nom" type="text" name="nom" value=""><br>
         <input type="submit" name="valider" value="OK">
+        <select id="tuteur" name="tuteur">
+        <?php foreach ($this->tuteurs as $tuteur) { ?>
+          <option value="<?= $tuteur->get_id() ?>"><?php echo $tuteur->get_nom(); echo " ".$tuteur->get_prenom(); ?></option>
+        <?php }; ?>
+        </select>
       </form>
   </body>
 </html>

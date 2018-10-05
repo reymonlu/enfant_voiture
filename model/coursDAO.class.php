@@ -36,7 +36,7 @@ function insertCoursDBA($libelle, $heure_debut, $duree, $jour){
 
     # Execution de la requete
     $res = $this->db->query($requete);
-    $cours = $res.fetchAll(PDO::FETCH_CLASS, 'Cours');
+    $cours = $res->fetchAll(PDO::FETCH_CLASS, 'Cours');
     return (empty($cours)) ? null : $cours[0];
   }
 }

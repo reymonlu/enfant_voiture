@@ -5,19 +5,21 @@
     <title>Inscription Tuteur</title>
   </head>
   <body>
-    <h2>Rajouter un Tuteur</h2>
+    <h1>Rajouter un Tuteur</h1>
     <form action="../controller/controle_tuteur.ctrl.php" method="get">
-      Prénom du tuteur : <input type="text" name="prenom" /><br>
-      Nom du tuteur : <input type="text" name="nom"><br>
-      Pourcentage de disponibilité : <input type="number" name="ptage_dispo" value=""><br>
-      Jours de disponibilité :<br>
-      <input type="checkbox" name="jour_dispo[]" value="lundi"> Lundi<br>
-      <input type="checkbox" name="jour_dispo[]" value="mardi"> Mardi<br>
-      <input type="checkbox" name="jour_dispo[]" value="mercredi"> Mercredi<br>
-      <input type="checkbox" name="jour_dispo[]" value="jeudi"> Jeudi<br>
-      <input type="checkbox" name="jour_dispo[]" value="vendredi"> Vendredi<br>
-      <input type="checkbox" name="jour_dispo[]" value="samedi"> Samedi<br>
-      <input type="checkbox" name="jour_dispo[]" value="dimanche"> Dimanche<br>
+      <label for="prenom">Prénom du tuteur : </label>
+      <input id="prenom" type="text" name="prenom" /><br>
+      <label for="nom_tuteur">Nom du tuteur : </label>
+      <input id ="nom_tuteur" type="text" name="nom"><br>
+      <label for="pourcentage">Pourcentage de disponibilité : </label>
+      <input id="pourcentage" type="number" name="ptage_dispo" value=""><br>
+      <h2>Jours de disponibilité </h2>
+      <?php
+      foreach ($this->jours as $jours) {
+        ?>
+        <label for="<?= $jours->getJour() ?>"><?= $jours->getJour() ?></label>
+        <input id="<?= $jours->getJour() ?>" type="checkbox" name="jour_dispo[]" value="<?= $jours->getJour() ?>"><br>
+      <?php }; ?>
       <input type="submit" name="valider" value="OK">
     </form>
   </body>

@@ -34,7 +34,6 @@ function insertTuteurDBA($nom, $prenom,$pourcentage_disponibilite){
     $tuteur = $res->fetchAll(PDO::FETCH_CLASS, 'Tuteur');
     return (empty($tuteur)) ? null : $tuteur;
   }
-
 }
 
  ?>

@@ -1,10 +1,10 @@
 <?php
 class Tuteur
 {
+  private $id_tuteur;
   private $prenom;
   private $nom;
-  private $jour_dispo;
-  private $ptage_dispo;
+  private $pourcentage_disponibilite;
 
 #  public function __construct($prenom, $nom, $jour_dispo, $ptage_dispo){
 #    $this->set_prenom($prenom);
@@ -12,7 +12,9 @@ class Tuteur
 #    $this->set_jour_dispo($jour_dispo);
 #    $this->set_ptage_dispo($ptage_dispo);
 #  }
-
+  public function get_id(){
+    return $this->id_tuteur;
+  }
   public function set_prenom($prenom){
     $this->prenom = $prenom;
   }
@@ -21,12 +23,9 @@ class Tuteur
     $this->nom = $nom;
   }
 
-  public function set_jour_dispo($jour_dispo){
-    $this->jour_dispo = $jour_dispo;
-  }
 
   public function set_ptage_dispo($ptage_dispo){
-    $this->ptage_dispo = $ptage_dispo;
+    $this->pourcentage_disponibilite = $ptage_dispo;
   }
 
   public function get_prenom(){
@@ -47,7 +46,7 @@ class Tuteur
 
   public function print(){
     echo "je suis le tuteur ".$this->get_prenom()." ".$this->get_nom()
-      ." ".$this->get_jour_dispo()." ".$this->get_ptage_dispo;
+      ." ".$this->get_jour_dispo()." ".$this->get_ptage_dispo();
   }
 }
 

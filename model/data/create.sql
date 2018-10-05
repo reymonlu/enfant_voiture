@@ -1,16 +1,16 @@
 CREATE TABLE Enfant(
-  id_enfant INTEGER PRIMARY KEY,
+  id_enfant INTEGER PRIMARY KEY AUTO_INCREMENT,
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL
 );
 CREATE TABLE Tuteur(
-  id_tuteur INTEGER PRIMARY KEY,
+  id_tuteur INTEGER PRIMARY KEY AUTO_INCREMENT,
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
   pourcentage_disponibilite numeric(2,2) NOT NULL
 );
 CREATE TABLE Cours(
-  id_cours INTEGER PRIMARY KEY,
+  id_cours INTEGER PRIMARY KEY AUTO_INCREMENT,
   libelle char(50) NOT NULL,
   heure_debut text NOT NULL,
   duree text NOT NULL,

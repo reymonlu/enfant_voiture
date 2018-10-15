@@ -2,7 +2,7 @@
 
 require_once('cours.class.php');
 
-class coursDAO{
+Class CoursDAO{
   private $db;
   private $database ="../model/data/database.db";
 

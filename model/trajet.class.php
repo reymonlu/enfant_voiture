@@ -4,10 +4,10 @@ class Trajet
   private $cours;
   private $tuteur;
 
-#  public function __construct($cours, $tuteur){
-#    $this->set_cours($cours);
-#    $this->set_tuteur($tuteur);
-#  }
+  public function __construct($cours, $tuteur){
+    $this->set_cours($cours);
+    $this->set_tuteur($tuteur);
+  }
 
   public function set_cours($cours){
     $this->cours = $cours;

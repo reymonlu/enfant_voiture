@@ -1,5 +1,6 @@
 CREATE TABLE Jour(
-  jour text PRIMARY KEY CHECK(jour IN ('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'))
+  id_jour INTEGER PRIMARY KEY,
+  jour text NOT NULL CHECK(jour IN ('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'))
 );
 CREATE TABLE Enfant(
   id_enfant INTEGER PRIMARY KEY,

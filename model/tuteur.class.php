@@ -41,7 +41,7 @@ class Tuteur
   }
 
   public function get_ptage_dispo(){
-    return $this->ptage_dispo;
+    return $this->pourcentage_disponibilite;
   }
 
   public function print(){

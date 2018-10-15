@@ -10,7 +10,7 @@ class InscriptionDAO{
       die('Erreur : '. $e->getMessage());
     }
   }
-}
+
 
 
   // Fonction qui retourne une liste de tous les cours

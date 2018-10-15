@@ -10,6 +10,17 @@ class DisponibleDAO{
       die('Erreur : '. $e->getMessage());
     }
   }
+
+
+  // Fonction qui retourne une liste de tous les cours
+  function selectAllDisponible(){
+    $requete = "SELECT * FROM Disponible";
+
+    # Execution de la requete
+    $res = $this->db->query($requete);
+    $disponible = $res->fetchAll(PDO::FETCH_CLASS, 'Disponible');
+    return (empty($disponible)) ? null : $disponible;
+  }
 }
 
 

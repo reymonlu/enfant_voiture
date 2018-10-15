@@ -25,16 +25,16 @@ CREATE TABLE Cours(
   libelle char(50) NOT NULL,
   heure_debut text NOT NULL,
   duree text NOT NULL,
-  jour text NOT NULL,
-  FOREIGN KEY(jour) REFERENCES Jour(jour)
+  jour INTEGER NOT NULL,
+  FOREIGN KEY(jour) REFERENCES Jour(id_jour)
 );
 
 CREATE TABLE Disponible(
   tuteur INTEGER NOT NULL,
-  jour text NOT NULL,
+  jour INTEGER NOT NULL,
   PRIMARY KEY (tuteur, jour),
   FOREIGN KEY(tuteur) REFERENCES Tuteur(id_tuteur),
-  FOREIGN KEY(jour) REFERENCES Jour(jour)
+  FOREIGN KEY(jour) REFERENCES Jour(id_jour)
 );
 CREATE TABLE Inscription(
   date_inscription text NOT NULL CHECK(date_inscription > date('now')),

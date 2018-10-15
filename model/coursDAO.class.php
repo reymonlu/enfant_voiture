@@ -22,7 +22,7 @@ function insertCoursDBA($libelle, $heure_debut, $duree, $jour){
     $heure_debut = $this->db->quote($heure_debut);
     $duree = $this->db->quote($duree);
     $jour = $this->db->quote($jour);
-    $req = $db->prepare("INSERT INTO cours(libelle,heure_debut,duree,jour) VALUES($libelle,$heure_debut, $duree, $jour)");
+    $req = $this->db->prepare("INSERT INTO cours(libelle,heure_debut,duree,jour) VALUES($libelle,$heure_debut, $duree, $jour)");
     $req->execute();
   }
 

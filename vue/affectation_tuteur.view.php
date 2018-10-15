@@ -16,35 +16,16 @@
     <th>Jour</th>
   <tr>
   <?php
-  foreach ($this->list_trajet as $trajet) {
-    foreach ($this->list_tuteur as $tuteur) {
-      if ($tuteur->get_id() == $trajet->get_tuteur()){
-          $nom = $tuteur->get_nom();
-          $prenom = $tuteur->get_prenom();
-      }
-    }
-    foreach ($this->list_cours as $cours) {
-      if($cours->get_id_cours() == $trajet->get_cours()){
-        $libelle = $cours->get_libelle();
-        $heure = $cours->get_heure_debut();
-        $jour = $cours->get_jour();
-      }
-    }
-    foreach ($this->list_jours as $j) {
-      if($j->get_id() == $jour){
-        $jour = $j->getJour();
-        break;
-      }
-    }
-    echo "<tr>";
-    echo "<td>".$nom."</td>";
-    echo "<td>".$prenom."</td>";
-    echo "<td>".$libelle."</td>";
-    echo "<td>".$heure."</td>";
-    echo "<td>".$jour."</td>";
-    echo "</tr>";
-  }
-  ?>
+  foreach($this->message as $insert){
+    ?>
+    <tr>
+      <td><?= $insert[0] ?></td>
+      <td><?= $insert[1] ?></td>
+      <td><?= $insert[2] ?></td>
+      <td><?= $insert[3] ?></td>
+      <td><?= $insert[4] ?></td>
+    </tr>
+  <?php }; ?>
   </table>
 
   </body>

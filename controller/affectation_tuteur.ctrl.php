@@ -54,11 +54,39 @@ foreach ($list_cours as $cours) {
     }
   }
 }
+
+  $message = array();
+  foreach ($list_trajet as $trajet) {
+    foreach ($list_tuteur as $tuteur) {
+      if ($tuteur->get_id() == $trajet->get_tuteur()){
+          $nom = $tuteur->get_nom();
+          $prenom = $tuteur->get_prenom();
+      }
+    }
+    foreach ($list_cours as $cours) {
+      if($cours->get_id_cours() == $trajet->get_cours()){
+        $libelle = $cours->get_libelle();
+        $heure = $cours->get_heure_debut();
+        $jour = $cours->get_jour();
+      }
+    }
+    foreach ($list_jours as $j) {
+      if($j->get_id() == $jour){
+        $jour = $j->getJour();
+        break;
+      }
+    }
+    $cache = array();
+    $cache[] = $nom;
+    $cache[] = $prenom;
+    $cache[] = $libelle;
+    $cache[] = $heure;
+    $cache[] = $jour;
+    $message[] = $cache;
+  }
+
 $view = new View();
-$view->list_trajet = $list_trajet;
-$view->list_tuteur = $list_tuteur;
-$view->list_cours = $list_cours;
-$view->list_jours = $list_jours;
+$view->message = $message;
 $view->show("../vue/affectation_tuteur.view.php");
 
  ?>

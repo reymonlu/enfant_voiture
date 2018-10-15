@@ -17,37 +17,29 @@ function insertTuteurDBA($nom, $prenom,$pourcentage_disponibilite){
     $nom = $this->db->quote($nom);
     $prenom = $this->db->quote($prenom);
     $pourcentage_disponibilite = $this->db->quote($pourcentage_disponibilite);
-    $req = "INSERT INTO tuteur(nom,prenom,pourcentage_disponibilite) VALUES($nom,$prenom,$pourcentage_disponibilite)";
-    $sth = $this->db->exec($req);
-    if(!$sth){
-        echo "\nPDO::errorInfo():\n";
-        print_r($this->db->errorInfo());
-    }
+    $req = $this->db->prepare("INSERT INTO tuteur(nom,prenom,pourcentage_disponibilite) VALUES($nom,$prenom,$pourcentage_disponibilite)");
+    $req->execute();
 }
 
   function setPourcentageDisponibilite($val,$id){
     global $db;
-    $req = "UPDATE tuteur SET pourcentage_disponibilite = $val WHERE id_tuteur = $id";
-    $sth = $this->db->exec($req);
-    if(!$sth){
-        echo "\nPDO::errorInfo():\n";
-        print_r($this->db->errorInfo());
-    }
+    $req = $this->db->prepare("UPDATE tuteur SET pourcentage_disponibilite = $val WHERE id_tuteur = $id");
+    $req->execute();
   }
 
   function selectAllTuteurs(){
-    $requete = "SELECT * FROM Tuteur";
+    $requete = $this->db->prepare("SELECT * FROM Tuteur");
+    $requete->execute();
 
     # Execution de la requete
-    $res = $this->db->query($requete);
-    $tuteur = $res->fetchAll(PDO::FETCH_CLASS, 'Tuteur');
+    $tuteur = $requete->fetchAll(PDO::FETCH_CLASS, 'Tuteur');
     return (empty($tuteur)) ? null : $tuteur;
   }
 
   function selectTuteur($tuteur){
-    $requete = "SELECT * FROM Tuteur WHERE id_tuteur = $tuteur";
-    $res = $this->db->query($requete);
-    $tuteur = $res->fetchAll(PDO::FETCH_CLASS, 'Tuteur');
+    $requete = $this->db->prepare("SELECT * FROM Tuteur WHERE id_tuteur = $tuteur");
+    $requete->execute();
+    $tuteur = $requete->fetchAll(PDO::FETCH_CLASS, 'Tuteur');
     return (empty($tuteur)) ? null : $tuteur;
   }
 }

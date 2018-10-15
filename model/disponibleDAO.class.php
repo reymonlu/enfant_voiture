@@ -14,11 +14,11 @@ class DisponibleDAO{
 
   // Fonction qui retourne une liste de tous les cours
   function selectAllDisponible(){
-    $requete = "SELECT * FROM Disponible";
+    $requete = $this->db->prepare("SELECT * FROM Disponible");
 
     # Execution de la requete
-    $res = $this->db->query($requete);
-    $disponible = $res->fetchAll(PDO::FETCH_CLASS, 'Disponible');
+    $requete->execute();
+    $disponible = $requete->fetchAll(PDO::FETCH_CLASS, 'Disponible');
     return (empty($disponible)) ? null : $disponible;
   }
 }

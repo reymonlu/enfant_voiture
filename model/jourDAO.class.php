@@ -12,15 +12,12 @@ class JourDAO{
   }
   # Fonction qui retourne toute la table Jours
   function getAllJours(){
-    $requete = "SELECT * FROM Jour";
+    $requete = $this->db->prepare("SELECT * FROM Jour");
+    $requete->execute();
     # Execution de la requete
-    $reponse = $this->db->query($requete);
-    if(!$reponse){
-      echo "\nPDO::errorInfo():\n";
-      print_r($this->db->errorInfo());
-    }
+    #$reponse = $this->db->query($requete);
     # récupération des données de la réponse sous la forme d'objet Jour
-    $jours = $reponse->fetchAll(PDO::FETCH_CLASS, 'Jour');
+    $jours = $requete->fetchAll(PDO::FETCH_CLASS, 'Jour');
     # On retourne le résultat
     return (empty($jours)) ? null : $jours;
   }

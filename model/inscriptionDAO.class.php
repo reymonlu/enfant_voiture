@@ -15,11 +15,11 @@ class InscriptionDAO{
 
   // Fonction qui retourne une liste de tous les cours
   function selectAllInscriptions(){
-    $requete = "SELECT * FROM Inscription";
+    $requete = $this->db->prepare("SELECT * FROM Inscription");
 
     # Execution de la requete
-    $res = $this->db->query($requete);
-    $inscription = $res->fetchAll(PDO::FETCH_CLASS, 'Inscription');
+    $requete->execute();
+    $inscription = $requete->fetchAll(PDO::FETCH_CLASS, 'Inscription');
     return (empty($inscription)) ? null : $inscription;
   }
 

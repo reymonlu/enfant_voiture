@@ -22,21 +22,17 @@ function insertCoursDBA($libelle, $heure_debut, $duree, $jour){
     $heure_debut = $this->db->quote($heure_debut);
     $duree = $this->db->quote($duree);
     $jour = $this->db->quote($jour);
-    $req = "INSERT INTO cours(libelle,heure_debut,duree,jour) VALUES($libelle,$heure_debut, $duree, $jour)";
-    $sth = $this->db->exec($req);
-    if(!$sth){
-      echo "\nPDO::errorInfo():\n";
-      print_r($this->db->errorInfo());
-    }
+    $req = $db->prepare("INSERT INTO cours(libelle,heure_debut,duree,jour) VALUES($libelle,$heure_debut, $duree, $jour)");
+    $req->execute();
   }
 
   // Fonction qui retourne une liste de tous les cours
   function selectAllCours(){
-    $requete = "SELECT * FROM Cours";
+    $requete = $this->db->prepare("SELECT * FROM Cours");
+    $requete->execute();
 
     # Execution de la requete
-    $res = $this->db->query($requete);
-    $cours = $res->fetchAll(PDO::FETCH_CLASS, 'Cours');
+    $cours = $requete->fetchAll(PDO::FETCH_CLASS, 'Cours');
     return (empty($cours)) ? null : $cours;
   }
 

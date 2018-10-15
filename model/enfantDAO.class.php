@@ -16,21 +16,17 @@ function insertEnfantDBA($nom, $prenom){
     global $db;
     $nom = $this->db->quote($nom);
     $prenom = $this->db->quote($prenom);
-    $req = "INSERT INTO enfant(nom,prenom) VALUES($nom,$prenom)";
-    $sth = $this->db->exec($req);
-    if(!$sth){
-        echo "\nPDO::errorInfo():\n";
-        print_r($this->db->errorInfo());
-    }
+    $req = $this->db->prepare("INSERT INTO enfant(nom,prenom) VALUES($nom,$prenom)");
+    $req->execute();
   }
 
   // Fonction qui retourne une liste de tous les cours
   function selectAllEnfants(){
-    $requete = "SELECT * FROM Enfant";
+    $requete = $this->db->prepare("SELECT * FROM Enfant");
 
     # Execution de la requete
-    $res = $this->db->query($requete);
-    $enfant = $res->fetchAll(PDO::FETCH_CLASS, 'Enfant');
+    $requete->execute();
+    $enfant = $requete->fetchAll(PDO::FETCH_CLASS, 'Enfant');
     return (empty($enfant)) ? null : $enfant;
   }
 

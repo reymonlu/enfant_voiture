@@ -21,6 +21,17 @@ class JourDAO{
     # On retourne le résultat
     return (empty($jours)) ? null : $jours;
   }
+
+  # Fonction qui retourne l'ID d'un jour en fonction du nom
+  function getIdJour($jour){
+
+
+    $requete = "SELECT id_jour FROM jour where jour = '$jour' ";
+    # Execution de la requete
+    $reponse = $this->db->query($requete);
+    $id_jour = $reponse->fetch()[0];
+    return $id_jour;
+  }
 }
 
 

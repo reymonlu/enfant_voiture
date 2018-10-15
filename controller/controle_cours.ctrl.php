@@ -1,17 +1,18 @@
 <?php
 
   require_once('../model/coursDAO.class.php');
+  require_once('../model/jourDAO.class.php');
+  $coursDAO = new CoursDAO();
+  $joursDAO = new JourDAO();
 
-  $_GET['libelle'] = htmlentities($_GET['libelle']);
-  $_GET['heure_deb'] = htmlentities($_GET['heure_deb']);
-  $_GET['duree'] = htmlentities($_GET['duree']);
-  $_GET['jour_sem'] = htmlentities($_GET['jour_sem']);
 
-  $libelle = $_GET['libelle'];
-  $heure_deb= $_GET['heure_deb'];
-  $duree = $_GET['duree'];
-  $jour_sem = $_GET['jour_sem'];
+  $libelle = htmlentities($_GET['libelle']);
+  $heure_deb = htmlentities($_GET['heure_deb']);
+  $duree = htmlentities($_GET['duree']);
+  $jour_sem = htmlentities($_GET['jour_sem']);
 
-  $database = new CoursDAO();
-  $database->insertCoursDBA($libelle, $heure_deb, $duree, $jour_sem);
+  # On regarde qu'elle est l'id du jour demandé
+  $id_jour = $joursDAO->getIdJour($jour_sem);
+  # Insertion dans la base de données
+  $coursDAO->insertCoursDBA($libelle, $heure_deb, $duree, $id_jour);
 ?>

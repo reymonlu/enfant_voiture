@@ -2,6 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../style.css">
     <title>Inscription Tuteur</title>
   </head>
   <body>
@@ -18,7 +19,7 @@
       foreach ($this->jours as $jours) {
         ?>
         <label for="<?= $jours->getJour() ?>"><?= $jours->getJour() ?></label>
-        <input id="<?= $jours->getJour() ?>" type="checkbox" name="jour_dispo[]" value="<?= $jours->getJour() ?>"><br>
+        <input id="<?= $jours->get_id() ?>" type="checkbox" name="jour_dispo[]" value="<?= $jours->get_id() ?>"><br>
       <?php }; ?>
       <input type="submit" name="valider" value="OK">
     </form>

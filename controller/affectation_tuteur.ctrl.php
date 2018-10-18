@@ -47,7 +47,11 @@ foreach ($list_cours as $cours) {
       $list_trajet[] = $tcache;
       foreach ($list_tuteur as $tuteur) {
         if ($dispo->get_tuteur() == $tuteur->get_id()){
-            $tuteur->set_ptage_dispo(0);
+            $ptage = ($tuteur->get_ptage_dispo() / 2);
+            if($ptage < 20){
+              $ptage = 0;
+            }
+            $tuteur->set_ptage_dispo($ptage);
         }
       }
       break;

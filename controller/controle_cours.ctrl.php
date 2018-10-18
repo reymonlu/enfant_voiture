@@ -17,7 +17,6 @@
     $view->error_duree = isset($_GET['duree']) ? null : "Veuillez la durée";
     $view->error_jour = isset($_GET['jour_sem']) ? null : "Veuillez saisir un jour correct";
     $view->show("../vue/ajout_cours.view.php");
-    var_dump(preg_match(,"16:15"));
     }
 
 

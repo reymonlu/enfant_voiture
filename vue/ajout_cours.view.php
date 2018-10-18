@@ -22,7 +22,7 @@
 
       <br>
       <label for="duree">Durée : </label>
-      <input id="duree" type="number" name="duree">
+      <input id="duree" type="time" name="duree">
       <?php if(isset($this->error_duree)): ?>
         <strong><?= $this->error_duree ?></strong>
       <?php endif; ?>

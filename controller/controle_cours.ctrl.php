@@ -8,6 +8,10 @@
   $joursDAO = new JourDAO();
   $view = new View();
   $view->jours = $joursDAO->getAllJours();
+  $jours = array(); # Variable qui contient tous les jours de la base de données
+  foreach ($view->jours as $key) {
+    $jours[] = $key->getJour();
+  }
 
 
   # On test que tous les paramètres soient passés
@@ -17,13 +21,15 @@
     $view->error_duree = isset($_GET['duree']) ? null : "Veuillez la durée";
     $view->error_jour = isset($_GET['jour_sem']) ? null : "Veuillez saisir un jour correct";
     $view->show("../vue/ajout_cours.view.php");
-    var_dump(preg_match(,"16:15"));
     }
 
-
   # On teste à présent la bonne intégrité des données
-  elseif ($_GET['libelle'] == null || preg_match("/^[0-9]{2}:[0-9]{2}$/",$_GET['heure_deb']) ) {
-
+  elseif ($_GET['libelle'] == null || !preg_match("/^[0-9]{2}:[0-9]{2}$/",$_GET['heure_deb']) || !preg_match("/^[0-9]{2}:[0-9]{2}$/",$_GET['duree']) || !in_array($_GET['jour_sem'], $jours)) {
+    var_dump($_GET['libelle'] == null);
+    var_dump(!preg_match("/^[0-9]{2}:[0-9]{2}$/",$_GET['heure_deb']));
+    var_dump(!preg_match("/^[0-9]{2}:[0-9]{2}$/",$_GET['duree']));
+    var_dump(!in_array($_GET['jour_sem'], $jours));
+    // TODO: Faire les vérifications des données qui ne sont pas bonnes
   }
   # Insertion dans la base de données
   else{
@@ -36,7 +42,7 @@
 
     $coursDAO->insertCoursDBA($libelle, $heure_deb, $duree, $id_jour);
     # Et on retourne la page
-    header("Location: main.ctrl.php");
+    #header("Location: main.ctrl.php");
   }
 
 

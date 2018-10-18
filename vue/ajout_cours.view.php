@@ -8,11 +8,11 @@
     <h1>Rajouter un cours</h1>
     <form action="../controller/controle_cours.ctrl.php" method="get">
       <label for="libelle">Libellé : </label>
-      <input id="libelle" type="text" name="libelle" /><br>
+      <input id="libelle" type="text" name="libelle" placeholder="<?= isset($this->error_libelle) ? $this->error_libelle : "" ?>"/><br>
       <label for="debut">Heure de début : </label>
-      <input id="debut" type="time" name="heure_deb"><br>
+      <input id="debut" type="time" name="heure_deb" placeholder=""><br>
       <label for="duree">Durée : </label>
-      <input id="duree" type="number" name="duree"><br>
+      <input id="duree" type="number" name="duree" placeholder=""><br>
       <label for="jour">Jour de la semaine :</label>
         <select id="jour" name="jour_sem">
         <?php foreach ($this->jours as $jours) { ?>

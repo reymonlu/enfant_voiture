@@ -5,8 +5,6 @@ require_once("../model/jourDAO.class.php");
 
 # Instanciation Du DAO
 $joursDAO = new JourDAO();
-
-
 # Instanciation de la vue
 $view = new View();
 $view->jours = $joursDAO->getAllJours();

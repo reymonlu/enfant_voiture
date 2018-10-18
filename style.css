@@ -1,0 +1,51 @@
+body {
+  background-color: #EEE;
+  margin : auto;
+  width: 50%;
+}
+
+
+th, td {
+border: thin solid;
+}
+
+table {
+    margin : auto;
+    border: medium solid;
+    -webkit-animation: 2s linear infinite condemed_blink_effect; // for android
+    animation: 2s linear infinite condemed_blink_effect;
+}
+
+@-webkit-keyframes condemed_blink_effect { // for android
+    0% {
+        color : green;
+    }
+    50% {
+        color : red;
+    }
+    100% {
+        color : blue;
+    }
+}
+@keyframes condemed_blink_effect {
+    0% {
+        color : green;
+    }
+    50% {
+        color : red;
+    }
+    100% {
+        color : blue;
+    }
+}
+
+h1 {
+  margin : auto;
+  text-align: center;
+  color : blue;
+}
+
+h2 {
+  margin :auto;
+  color : red;
+}

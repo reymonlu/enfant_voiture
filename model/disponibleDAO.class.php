@@ -21,6 +21,11 @@ class DisponibleDAO{
     $disponible = $requete->fetchAll(PDO::FETCH_CLASS, 'Disponible');
     return (empty($disponible)) ? null : $disponible;
   }
+
+  function addDisponibilite($id, $jour){
+    $requete = $this->db->prepare("INSERT INTO Disponible VALUES ($id, $jour)");
+    $requete->execute();
+  }
 }
 
 

@@ -2,9 +2,11 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../style.css">
     <title>Ajout d'un tuteur</title>
   </head>
   <body>
+    <h1>Visualiser les réservations</h1>
 
   <table>
   <caption>Tableau des trajets</caption>

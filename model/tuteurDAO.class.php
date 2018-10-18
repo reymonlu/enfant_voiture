@@ -28,12 +28,23 @@ function insertTuteurDBA($nom, $prenom,$pourcentage_disponibilite){
   }
 
   function selectAllTuteurs(){
+    global $db;
     $requete = $this->db->prepare("SELECT * FROM Tuteur");
     $requete->execute();
 
     # Execution de la requete
     $tuteur = $requete->fetchAll(PDO::FETCH_CLASS, 'Tuteur');
     return (empty($tuteur)) ? null : $tuteur;
+  }
+
+  function selectTuteurID($nom, $prenom){
+    global $db;
+    $nom = $this->db->quote($nom);
+    $prenom = $this->db->quote($prenom);
+    $requete = $this->db->prepare("SELECT id_tuteur FROM Tuteur WHERE nom = $nom AND prenom = $prenom");
+    $requete->execute();
+    $id = $requete->fetch();
+    return $id;
   }
 
   function selectTuteur($tuteur){

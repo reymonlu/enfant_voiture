@@ -2,6 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../style.css">
     <title>Ajout Enfant</title>
   </head>
   <body>

@@ -1,7 +1,19 @@
 <?php
 
+
+  session_start();
+  $id_visiteur = $_SESSION['id_visiteur'];
+
   require_once('../model/tuteurDAO.class.php');
   require_once('../model/disponibleDAO.class.php');
+  require_once('../model/erreur.class.php');
+
+  $verif_erreur = new Erreur();
+  if (!($verif_erreur->verif_id($id_visiteur))){
+  $v = new View();
+  $v->show("../vue/erreur_id.view.php");
+  }
+  else {
 
   $_GET['prenom'] = htmlentities($_GET['prenom']);
   $_GET['nom'] = htmlentities($_GET['nom']);
@@ -21,5 +33,5 @@
   foreach ($jour_dispo as $value) {
     $disponible->addDisponibilite((int) $tuteur_id[0], (int) $value);
   }
-
+}
 ?>

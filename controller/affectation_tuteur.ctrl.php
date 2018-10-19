@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+$id_visiteur = $_SESSION['id_visiteur'];
+
+require_once('../model/erreur.class.php');
 require_once('../model/jour.class.php');
 require_once('../model/jourDAO.class.php');
 require_once('../model/vue.class.php');
@@ -13,7 +18,14 @@ require_once('../model/inscription.class.php');
 require_once('../model/trajet.class.php');
 require_once('../model/disponible.class.php');
 require_once('../model/disponibleDAO.class.php');
+require_once('../model/erreur.class.php');
 
+$verif_erreur = new Erreur();
+if (!($verif_erreur->verif_id($id_visiteur))){
+  $v = new View();
+  $v->show("../vue/erreur_id.view.php");
+}
+else {
 $dbcours = new CoursDAO();
 $dbenfant = new EnfantDAO();
 $dbtuteur = new TuteurDAO();
@@ -93,4 +105,4 @@ $view = new View();
 $view->message = $message;
 $view->show("../vue/affectation_tuteur.view.php");
 
- ?>
+} ?>

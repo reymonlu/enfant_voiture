@@ -1,4 +1,5 @@
 <?php
+require_once("../model/tuteur.class.php");
 Class TuteurDAO{
   private $db;
   private $database = "../model/data/database.db"; //Chemin vers la base de donnée
@@ -53,6 +54,19 @@ function insertTuteurDBA($nom, $prenom,$pourcentage_disponibilite){
     $tuteur = $requete->fetchAll(PDO::FETCH_CLASS, 'Tuteur');
     return (empty($tuteur)) ? null : $tuteur;
   }
+  function getAllId(){
+    $requete = $this->db->prepare("SELECT * FROM Tuteur");
+
+    # Execution de la requete
+    $requete->execute();
+    $tuteur = $requete->fetchAll(PDO::FETCH_CLASS, 'Tuteur');
+    $retour = [];
+    foreach ($tuteur as $t) {
+      $retour[] = $t->get_id();
+    }
+    return (empty($retour)) ? null : $retour;
+  }
+
 }
 
  ?>

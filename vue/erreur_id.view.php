@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <p>Vous avez manifestement modifié votre ID de session, veuillez vous reconnecter</p>
+    <p>Page interdite, passez par le première page du site !</p>
 
   </body>
 </html>

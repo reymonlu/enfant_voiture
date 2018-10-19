@@ -44,3 +44,7 @@ CREATE TABLE Inscription(
   FOREIGN KEY(cours) REFERENCES Cours(id_cours),
   PRIMARY KEY (enfant, cours)
 );
+
+CREATE TABLE Cookie(
+  id INTEGER PRIMARY KEY
+);

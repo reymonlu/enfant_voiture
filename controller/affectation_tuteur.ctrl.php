@@ -1,7 +1,18 @@
 <?php
+require_once('../model/cookieDAO.class.php');
 
 session_start();
-$id_visiteur = $_SESSION['id_visiteur'];
+if (isset($_SESSION['id_visiteur'])){
+  $id_visiteur = $_SESSION['id_visiteur'];
+}
+if (isset($_COOKIE["enfant_projet"])){
+  $cache = $_COOKIE["enfant_projet"];
+  $cookieDAO = new CookieDAO();
+  $cache_cookie = $cookieDAO->select_cookie($cache);
+  if(isset($cache_cookie)){
+    $id_visiteur = (int) $cache_cookie;
+  }
+}
 
 require_once('../model/erreur.class.php');
 require_once('../model/jour.class.php');
@@ -21,7 +32,9 @@ require_once('../model/disponibleDAO.class.php');
 require_once('../model/erreur.class.php');
 
 $verif_erreur = new Erreur();
-if (!($verif_erreur->verif_id($id_visiteur))){
+$cookie = $_COOKIE["enfant_projet"];
+
+if (!(isset($id_visiteur)) || !($verif_erreur->verif_id($id_visiteur))){
   $v = new View();
   $v->show("../vue/erreur_id.view.php");
 }

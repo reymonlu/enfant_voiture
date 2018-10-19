@@ -10,19 +10,22 @@
     <form action="../controller/controle_cours.ctrl.php" method="get">
       <label for="libelle">Libellé : </label>
       <input id="libelle" type="text" name="libelle"/>
+      <br>
       <?php if(isset($this->error_libelle)): ?>
         <strong><?= $this->error_libelle ?></strong>
       <?php endif; ?>
       <br>
       <label for="debut">Heure de début : </label>
       <input id="debut" type="time" name="heure_deb">
+      <br>
       <?php if(isset($this->error_heure_deb)): ?>
         <strong><?= $this->error_heure_deb ?></strong>
       <?php endif; ?>
-
       <br>
+
       <label for="duree">Durée : </label>
       <input id="duree" type="time" name="duree">
+      <br>
       <?php if(isset($this->error_duree)): ?>
         <strong><?= $this->error_duree ?></strong>
       <?php endif; ?>

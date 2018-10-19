@@ -18,7 +18,7 @@
       <?php
       foreach ($this->jours as $jours) {
         ?>
-        <label for="<?= $jours->getJour() ?>"><?= $jours->getJour() ?></label>
+        <label for="<?= $jours->get_id() ?>"><?= $jours->getJour() ?></label>
         <input id="<?= $jours->get_id() ?>" type="checkbox" name="jour_dispo[]" value="<?= $jours->get_id() ?>"><br>
       <?php }; ?>
       <input type="submit" name="valider" value="OK">
